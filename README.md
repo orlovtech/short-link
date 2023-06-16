@@ -6,15 +6,15 @@
 [![Tests][badge-tests]][tests]
 [![Total Downloads][badge-downloads]][downloads]
 
-[badge-tests]: https://github.com/orlovkn/laravel-link-shortener/actions/workflows/test.yml/badge.svg
-[badge-release]: https://img.shields.io/packagist/v/orlovkn/laravel-link-shortener.svg?style=flat-square&label=release
-[badge-php]: https://img.shields.io/packagist/php-v/orlovkn/laravel-link-shortener.svg?style=flat-square
-[badge-downloads]: https://img.shields.io/packagist/dt/orlovkn/laravel-link-shortener.svg?style=flat-square&colorB=mediumvioletred
+[badge-tests]: https://github.com/orlovtech/short-link/actions/workflows/ci-tests.yml/badge.svg
+[badge-release]: https://img.shields.io/packagist/v/orlovtech/short-link.svg?style=flat-square&label=release
+[badge-php]: https://img.shields.io/packagist/php-v/orlovtech/short-link.svg?style=flat-square
+[badge-downloads]: https://img.shields.io/packagist/dt/orlovtech/short-link.svg?style=flat-square&colorB=mediumvioletred
 
-[packagist]: https://packagist.org/packages/orlovkn/laravel-link-shortener
+[packagist]: https://packagist.org/packages/orlovtech/short-link
 [php]: https://php.net
-[downloads]: https://packagist.org/packages/orlovkn/laravel-link-shortener
-[tests]: https://github.com/orlovkn/laravel-link-shortener/actions/workflows/test.yml
+[downloads]: https://packagist.org/packages/orlovtech/short-link
+[tests]: https://github.com/orlovtech/short-link/actions/workflows/ci-tests.yml
 <!-- BADGES_END -->
 
 ## Table of Contents
@@ -25,6 +25,8 @@
     - [Install the Package](#install-the-package)
     - [Publish the Config and Migrations](#publish-the-config-and-migrations)
     - [Migrate the Database](#migrate-the-database)
+- [Testing](#testing)
+- [License](#license)
 
 ## Overview
 
