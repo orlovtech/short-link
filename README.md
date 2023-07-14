@@ -1,4 +1,4 @@
-# Laravel Link Shortener Package
+# Laravel Link Shortener
 
 <!-- BADGES_START -->
 [![Latest Version][badge-release]][packagist]

@@ -26,4 +26,25 @@ class ShortLink extends Model
         'deleted_at' => 'immutable_datetime',
         'single_use' => 'boolean',
     ];
+
+//    /**
+//     * A helper method that can be used for finding
+//     * a ShortURL model with the given URL key.
+//     *
+//     * @param  string  $URLKey
+//     * @return ShortURL|null
+//     */
+//    public static function findByKey(string $URLKey): ?self
+//    {
+//        return self::where('url_key', $URLKey)->first();
+//    }
+//
+    /**
+     * @param  string  $destinationURL
+     * @return Collection<int, ShortLink>
+     */
+    public static function findByDestinationURL(string $destinationURL): Collection
+    {
+        return self::where('destination_url', $destinationURL)->get();
+    }
 }
