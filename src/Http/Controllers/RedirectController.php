@@ -11,9 +11,9 @@ final class RedirectController
     public function __invoke(
         string $urlKey,
         RedirectAction $redirectAction,
-    ): void {
+    ) {
         $link = $redirectAction($urlKey);
 
-        redirect()->to($link);
+        return redirect()->away($link);
     }
 }

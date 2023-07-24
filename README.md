@@ -38,7 +38,7 @@ A Laravel package that can be used for adding shortened URLs to your existing we
 The package has been developed and tested to work with the following minimum requirements:
 
 - PHP 8.0
-- Laravel 8.0
+- Laravel 9.0
 
 ### Install the Package
 You can install the package via Composer:

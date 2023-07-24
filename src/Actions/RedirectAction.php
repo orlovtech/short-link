@@ -11,9 +11,7 @@ final class RedirectAction
 {
     public function __invoke(string $urlKey): string
     {
-        $record = ShortLink::query()
-            ->where('url_key', trim($urlKey))
-            ->first();
+        $record = ShortLink::findByKey($urlKey);
 
         if ($record?->single_use === true) {
             $record->delete();
