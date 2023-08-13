@@ -25,6 +25,7 @@
     - [Install the Package](#install-the-package)
     - [Publish the Config and Migrations](#publish-the-config-and-migrations)
     - [Migrate the Database](#migrate-the-database)
+- [Generate the Link](#generate-the-link)
 - [Testing](#testing)
 - [License](#license)
 
@@ -57,6 +58,35 @@ php artisan vendor:publish --provider="OrlovTech\ShortLink\Providers\ShortLinkSe
 This package contains one migration that add a new table to the database: ```short_links```. To run this migration, simply run the following command:
 ```bash
 php artisan migrate
+```
+
+### Generate the Link
+The fastest way to generate new link is to use the facade `OrlovTech\ShortLink\Facades\ShortLink` like this:
+
+```bash
+ShortLink::generate('https://yourlink.com');
+```
+
+This method will return you short version of your link.
+
+Method `generate` also has the second parameter `singleUse` as an option.
+With this parameter you can specify that your link should be deleted after it was used for the first time.
+
+So the full view might be:
+
+```bash
+ShortLink::generate(
+    'https://yourlink.com',
+    singleUse: true,
+);
+```
+
+To show ready link use param `default_short_url` like so:
+
+```bash
+$link = ShortLink::generate('https://yourlink.com');
+
+echo config('app.url') . $link->default_short_url;
 ```
 
 ## Testing

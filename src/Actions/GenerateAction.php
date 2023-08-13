@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 use OrlovTech\ShortLink\Exceptions\WrongLinkException;
 use OrlovTech\ShortLink\Models\ShortLink;
 
-final class GenerateAction
+class GenerateAction
 {
     public function generate(
         string $destinationUrl,
@@ -29,7 +29,7 @@ final class GenerateAction
             ]);
     }
 
-    private function urlKey(): string
+    protected function urlKey(): string
     {
         return Str::limit(Str::orderedUuid()->toString(), 13, '');
     }
