@@ -63,7 +63,7 @@ php artisan migrate
 ### Generate the Link
 The fastest way to generate new link is to use the facade `OrlovTech\ShortLink\Facades\ShortLink` like this:
 
-```bash
+```php
 ShortLink::generate('https://yourlink.com');
 ```
 
@@ -74,7 +74,7 @@ With this parameter you can specify that your link should be deleted after it wa
 
 So the full view might be:
 
-```bash
+```php
 ShortLink::generate(
     'https://yourlink.com',
     singleUse: true,
@@ -83,7 +83,7 @@ ShortLink::generate(
 
 To show ready link use param `default_short_url` like so:
 
-```bash
+```php
 $link = ShortLink::generate('https://yourlink.com');
 
 echo config('app.url') . $link->default_short_url;
