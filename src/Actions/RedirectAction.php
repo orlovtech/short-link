@@ -7,7 +7,7 @@ namespace OrlovTech\ShortLink\Actions;
 use OrlovTech\ShortLink\Exceptions\LinkNotFoundException;
 use OrlovTech\ShortLink\Models\ShortLink;
 
-final class RedirectAction
+class RedirectAction
 {
     public function __invoke(string $urlKey): string
     {
