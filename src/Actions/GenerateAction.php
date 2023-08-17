@@ -14,7 +14,7 @@ class GenerateAction
         string $destinationUrl,
         bool $singleUse = false,
     ): ShortLink {
-        if (filter_var($destinationUrl, FILTER_VALIDATE_URL) === FALSE) {
+        if (filter_var($destinationUrl, FILTER_VALIDATE_URL) === false) {
             throw new WrongLinkException();
         }
 
