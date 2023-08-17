@@ -29,7 +29,7 @@ class GenerateAction
             ]);
     }
 
-    protected function urlKey(): string
+    public function urlKey(): string
     {
         return Str::limit(Str::orderedUuid()->toString(), 13, '');
     }

@@ -13,7 +13,7 @@ class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
 
     protected function getPackageProviders($app): array
@@ -25,7 +25,7 @@ class TestCase extends BaseTestCase
     {
         $app['config']->set('database.default', 'testdb');
         $app['config']->set('database.connections.testdb', [
-            'driver'   => 'sqlite',
+            'driver' => 'sqlite',
             'database' => ':memory:',
         ]);
     }
