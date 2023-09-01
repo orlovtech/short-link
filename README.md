@@ -26,6 +26,7 @@
     - [Publish the Config and Migrations](#publish-the-config-and-migrations)
     - [Migrate the Database](#migrate-the-database)
 - [Generate the Link](#generate-the-link)
+- [Use the link](#use-the-link)
 - [Testing](#testing)
 - [License](#license)
 
@@ -38,8 +39,8 @@ A Laravel package that can be used for adding shortened URLs to your existing we
 ### Requirements
 The package has been developed and tested to work with the following minimum requirements:
 
-- PHP >8.1
-- Laravel >9.0
+- PHP >=8.1
+- Laravel >=9.0
 
 ### Install the Package
 You can install the package via Composer:
@@ -53,6 +54,8 @@ You can then publish the package's config file and database migrations by using 
 ```bash
 php artisan vendor:publish --provider="OrlovTech\ShortLink\Providers\ShortLinkServiceProvider"
 ```
+
+at this config file you can change the prefix you want to use. By default it's a `/short/`.
 
 ### Migrate the Database
 This package contains one migration that add a new table to the database: ```short_links```. To run this migration, simply run the following command:
@@ -88,6 +91,11 @@ $link = ShortLink::generate('https://yourlink.com');
 
 echo config('app.url') . $link->default_short_url;
 ```
+
+### Use the link
+When you have ready link you can use the endpoint `https://yourdomain.com/short/628ac418-865a`
+
+where `short` is the prefix from config file
 
 ## Testing
 
