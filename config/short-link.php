@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'prefix' => '/short',
+    'prefix' => '/short/',
 ];
