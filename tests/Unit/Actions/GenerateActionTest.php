@@ -6,6 +6,7 @@ namespace OrlovTech\ShortLink\Test\Unit\Actions;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use OrlovTech\ShortLink\Actions\GenerateAction;
+use OrlovTech\ShortLink\Exceptions\UrlKeyAlreadyExistsException;
 use OrlovTech\ShortLink\Exceptions\WrongLinkException;
 use OrlovTech\ShortLink\Models\ShortLink;
 use OrlovTech\ShortLink\Test\TestCase;
@@ -83,5 +84,25 @@ final class GenerateActionTest extends TestCase
         $urlKey2 = $this->generateAction->urlKey();
 
         $this->assertNotEquals($urlKey1, $urlKey2);
+    }
+
+    /** @test */
+    public function it_generates_named_url_key(): void
+    {
+        $destinationUrl = 'http://example.com';
+
+        $shortLink = $this->generateAction->generate($destinationUrl, true, 'custom_url_key');
+
+        $this->assertEquals('custom_url_key', $shortLink->url_key);
+    }
+    
+    /** @test */
+    public function it_generates_unique_named_url_key(): void
+    {
+        $destinationUrl = 'http://example.com';
+        $this->expectException(UrlKeyAlreadyExistsException::class);
+
+        $shortLink1 = $this->generateAction->generate($destinationUrl, true, 'custom_url_key');
+        $shortLink2 = $this->generateAction->generate($destinationUrl, true, 'custom_url_key');
     }
 }
