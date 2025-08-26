@@ -73,7 +73,7 @@ final class GenerateActionTest extends TestCase
         $urlKey = $this->generateAction->urlKey();
 
         $this->assertIsString($urlKey);
-        $this->assertEquals(13, strlen($urlKey));
+        $this->assertEquals(12, strlen($urlKey));
     }
 
     /** @test */

@@ -31,6 +31,6 @@ class GenerateAction
 
     public function urlKey(): string
     {
-        return Str::limit(Str::orderedUuid()->toString(), 13, '');
+        return Str::limit(str_replace('-', '', Str::orderedUuid()->toString()), 12, '');
     }
 }
