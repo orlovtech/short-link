@@ -14,6 +14,10 @@ final class ShortLinkServiceProvider extends ServiceProvider
         $this->app->singleton('short-link.generate', function () {
             return new GenerateAction();
         });
+        $this->mergeConfigFrom(
+            __DIR__.'/../../config/short-link.php',
+            'short-link'
+        );
     }
 
     public function boot(): void

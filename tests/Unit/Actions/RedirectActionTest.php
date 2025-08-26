@@ -61,7 +61,6 @@ final class RedirectActionTest extends TestCase
             ->create([
                 'url_key' => $urlKey,
                 'destination_url' => $destinationUrl,
-                'default_short_url' => config('short-link.prefix').$urlKey,
                 'single_use' => $singleUse,
             ]);
 

@@ -24,7 +24,6 @@ class GenerateAction
             ->create([
                 'url_key' => $urlKey,
                 'destination_url' => trim($destinationUrl),
-                'default_short_url' => config('short-link.prefix').$urlKey,
                 'single_use' => $singleUse,
             ]);
     }
