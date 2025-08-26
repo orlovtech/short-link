@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace OrlovTech\ShortLink\Actions;
 
 use Illuminate\Support\Str;
+use OrlovTech\ShortLink\Exceptions\UrlKeyAlreadyExistsException;
 use OrlovTech\ShortLink\Exceptions\WrongLinkException;
 use OrlovTech\ShortLink\Models\ShortLink;
 
@@ -13,12 +14,17 @@ class GenerateAction
     public function generate(
         string $destinationUrl,
         bool $singleUse = false,
+        string $urlKey = '',
     ): ShortLink {
         if (filter_var($destinationUrl, FILTER_VALIDATE_URL) === false) {
             throw new WrongLinkException();
         }
 
-        $urlKey = $this->urlKey();
+        if (!$urlKey) {
+            $urlKey = $this->urlKey();
+        } else if (ShortLink::query()->where('url_key', $urlKey)->exists()) {
+            throw new UrlKeyAlreadyExistsException();
+        }
 
         return ShortLink::query()
             ->create([
